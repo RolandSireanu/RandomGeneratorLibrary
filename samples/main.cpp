@@ -1,4 +1,4 @@
-#include <include/RandomGenerator.h>
+#include "RandomGenerator.h"
 #include <vector>
 #include <array>
 
@@ -22,28 +22,27 @@ void sample_generateNumber()
 //Initialize vector with random values
 void sample_initVector()
 {
-    std::vector<int> v(10);
-    std::generate(v.begin(), v.end(), RandNrGen::getGen(10,20));
-    printContainer(v);
+    std::vector<int> vec(10);
+    std::generate(vec.begin(), vec.end(), RandNrGen::getGen(10,20));
+    printContainer(vec);
 }
 
 
 //Shuffle the elements of an array
 void sample_shuffleVector()
 {
+    std::vector<int> vec {9, 8, 7 ,6 ,5};
+    RandNrGen::shuffleContainer(vec);
+    printContainer(vec);
 
 }
 
 
 int main()
 {
-
-
-    
-
-    RandNrGen::shuffleContainer(v);
-    printContainer(v);
-
+    sample_generateNumber();
+    sample_initVector();
+    sample_shuffleVector();
 
     return 0;    
 }
