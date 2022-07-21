@@ -1,6 +1,7 @@
 #include "RandomGenerator.h"
 #include <vector>
 #include <array>
+#include <iostream>
 
 
 //Helper function
@@ -12,31 +13,46 @@ void printContainer(const Container& arg)
     std::cout << std::endl;
 }
 
-//Generate a random number in the specified interval.
+// Generate a random number in the specified interval.
 void sample_generateNumber()
 {
-    std::cout << RandNrGen::genNrInInterval(0, 10) << std::endl;
-    std::cout << RandNrGen::genNrInInterval(0.0, 1.0) << std::endl;
+    std::cout << " ======================================================================= " << std::endl;
+    //Generate number in 0-10 interval using the uniform distrubution
+    std::cout << "Uniform distribution 0-10: " << RandNrGen::genNrInInterval(0, 10) << std::endl;
+    //Generate number in 0-10 interval using the uniform distrubution
+    std::cout << "Uniform distribution 0.0-1.0: " << RandNrGen::genNrInInterval(0.0, 1.0) << std::endl;
+    //Generate a random boolean value using the bernoulli distribution
+    std::cout << "Bernoulli distribution with probability 0.5: " << std::boolalpha << RandNrGen::genNrInInterval<RandNrGen::BERNOULI>(0.5) << std::endl;
+    std::cout << "Poisson distrubution with mean value 0.5: " << RandNrGen::genNrInInterval<RandNrGen::POISSON>(0.5) << std::endl;
+    std::cout << " ======================================================================= " << std::endl;
 }
 
 //Initialize vector with random values
 void sample_initVector()
 {
+    std::cout << " ======================================================================= " << std::endl;
     std::vector<int> vec(10);
+    //Initialize vector with values in 10-20 interval using the uniform distribution
     std::generate(vec.begin(), vec.end(), RandNrGen::getGen(10,20));
+    std::cout << "Vector initialized with random values: " << std::endl; 
     printContainer(vec);
+    std::cout << std::endl;
+    std::cout << " ======================================================================= " << std::endl;
 }
-
 
 //Shuffle the elements of an array
 void sample_shuffleVector()
 {
+    std::cout << " ======================================================================= " << std::endl;
+    std::cout << "Original vector values: ";
     std::vector<int> vec {9, 8, 7 ,6 ,5};
-    RandNrGen::shuffleContainer(vec);
     printContainer(vec);
-
+    RandNrGen::shuffleContainer(vec);
+    std::cout << "Vector after shuffle process: ";
+    printContainer(vec);
+    std::cout << std::endl;
+    std::cout << " ======================================================================= " << std::endl;
 }
-
 
 int main()
 {
@@ -45,4 +61,4 @@ int main()
     sample_shuffleVector();
 
     return 0;    
-}
+} 
