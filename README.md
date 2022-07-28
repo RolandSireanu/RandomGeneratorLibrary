@@ -1,2 +1,2 @@
 # Random numbers
- Lightweight random generator library
+ Lightweight random numbers generator library
