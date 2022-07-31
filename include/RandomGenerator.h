@@ -1,7 +1,3 @@
-#include <random>
-#include <type_traits>
-#include <algorithm>
-
 namespace RandNrGen
 {   
     using namespace std;
@@ -60,7 +56,7 @@ namespace RandNrGen
 
     template<typename D, 
         typename=enable_if_t<is_same_v<D,NORMAL>, void>>
-    typename normal_distribution<>::result_type genNrInInterval()
+    typename normal_distribution<>::result_type genNrInInterval(double mean = 0.0, double stddev = 1.0)
     {
         normal_distribution normal;
         return normal(gen);
