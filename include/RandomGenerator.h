@@ -1,3 +1,7 @@
+#pragma once
+#include <random>
+#include <type_traits>
+
 namespace RandNrGen
 {   
     using namespace std;
@@ -58,7 +62,7 @@ namespace RandNrGen
         typename=enable_if_t<is_same_v<D,NORMAL>, void>>
     typename normal_distribution<>::result_type genNrInInterval(double mean = 0.0, double stddev = 1.0)
     {
-        normal_distribution normal;
+        normal_distribution normal(mean, stddev);
         return normal(gen);
     }
     
