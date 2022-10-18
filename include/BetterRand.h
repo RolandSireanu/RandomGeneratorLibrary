@@ -1,8 +1,9 @@
 #pragma once
 #include <random>
 #include <type_traits>
+#include <algorithm>
 
-namespace RandNrGen
+namespace BetterRand
 {   
     using namespace std;
     template<typename T>
