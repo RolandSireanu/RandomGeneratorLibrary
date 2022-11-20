@@ -1,4 +1,4 @@
-   # C++ library for random numbers generation
+   # BetterRand (C++ library for random numbers generation)
  ### Description: 
  Lightweight and flexible library for random numbers generation.
  
